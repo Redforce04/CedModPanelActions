@@ -24,6 +24,8 @@
 *.suo
 *.user
 .vs/
+PanelActions/[Bb]in/
+PanelActions/[Oo]bj/
 [Bb]in/
 [Oo]bj/
 _UpgradeReport_Files/
