@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{EDBF1D71-39C4-4816-86DA-4538960AF45E}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>PanelActions</RootNamespace>
+        <AssemblyName>PanelActions</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+          <HintPath>..\references\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.DataAnnotations">
+          <HintPath>..\references\System.ComponentModel.DataAnnotations.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="ActionManager.cs" />
+        <Compile Include="Attributes\ButtonAttribute.cs" />
+        <Compile Include="Attributes\Internal\Button.cs" />
+        <Compile Include="Attributes\Internal\Menu.cs" />
+        <Compile Include="Attributes\Internal\Modal.cs" />
+        <Compile Include="Attributes\Internal\Selection.cs" />
+        <Compile Include="Attributes\Internal\Slider.cs" />
+        <Compile Include="Attributes\ActionItemAttribute.cs" />
+        <Compile Include="Attributes\MenuAttribute.cs" />
+        <Compile Include="Attributes\ModalAttribute.cs" />
+        <Compile Include="Attributes\SelectionAttribute.cs" />
+        <Compile Include="Attributes\SliderAttribute.cs" />
+        <Compile Include="Enums\ActionType.cs" />
+        <Compile Include="Enums\ModalItemType.cs" />
+        <Compile Include="Enums\SelectionValue.cs" />
+        <Compile Include="Extensions\AbstractTypeExtensions.cs" />
+        <Compile Include="Features\Action.cs" />
+        <Compile Include="Features\ButtonAction.cs" />
+        <Compile Include="Features\MenuAction.cs" />
+        <Compile Include="Features\MenuSelection.cs" />
+        <Compile Include="Features\ModalAction.cs" />
+        <Compile Include="Features\ModalResults\ModalBoolResult.cs" />
+        <Compile Include="Features\ModalResults\ModalEnumResult.cs" />
+        <Compile Include="Features\ModalResults\ModalItemResult.cs" />
+        <Compile Include="Features\ModalResults\ModalResult.cs" />
+        <Compile Include="Features\ModalResults\ModalSliderResult.cs" />
+        <Compile Include="Features\ModalResults\ModalStringResult.cs" />
+        <Compile Include="Features\Modals\ModalBool.cs" />
+        <Compile Include="Features\Modals\ModalEnum.cs" />
+        <Compile Include="Features\Modals\ModalItem.cs" />
+        <Compile Include="Features\Modals\ModalSlider.cs" />
+        <Compile Include="Features\Modals\ModalString.cs" />
+        <Compile Include="Features\SelectionAction.cs" />
+        <Compile Include="Features\SliderAction.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="..\.gitignore">
+        <Link>.gitignore</Link>
+      </Content>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>

@@ -1,0 +1,2 @@
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.csproj.AssemblyReference.cache
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.csproj.CoreCompileInputs.cache
