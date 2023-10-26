@@ -14,6 +14,8 @@ namespace PanelActions;
 
 public abstract class SliderAction : Action
 {
+    public SliderAction() : base() { } 
+
     public abstract override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Slider;
     public virtual bool IntOnly { get; protected set; } = false;

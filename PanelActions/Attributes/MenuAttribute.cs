@@ -14,18 +14,35 @@ using System;
 using System.Collections.Generic;
 using PanelActions.Internal;
 
-namespace PanelActions;
+namespace PanelActions.Attributes;
 
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public sealed class MenuAttribute : ActionItemAttribute
 {
-    public MenuAttribute(string name, List<MenuSelection> menuSelections)
+    public MenuAttribute(string name)
     {
-        if (menuSelections is null || menuSelections.Count < 1)
-        {
-            throw new ArgumentException("The value \"MenuSelections\" (List<MenuSelection>) must have at least one valid menu selection.");
-        }
-
-        Menu = new Menu(name, menuSelections);
+        Menu = new Menu(name);
     }
     internal Menu Menu { get; set; }
+
+    internal void UpdateMenuOptions(List<MenuSelection> selections)
+    {
+        Menu.UpdateMenuSelections(selections);
+    }
+    public override string DisplayName
+    {
+        get => Menu.DisplayName;
+        set => Menu.UpdateDisplayName(value);
+    }
+    public override string DisplayDescription
+    {
+        get => Menu.DisplayDescription;
+        set => Menu.UpdateDisplayDescription(value);
+    }
+
+    public override string Name
+    {
+        get => Menu.Name;
+        set => Menu.UpdateName(value);
+    }
 }

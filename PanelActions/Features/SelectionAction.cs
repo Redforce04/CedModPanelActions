@@ -16,7 +16,10 @@ namespace PanelActions;
 
 public abstract class SelectionAction : Action
 {
+    public SelectionAction() : base() { } 
+
     public abstract override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Selection;
     public abstract SelectionValue SelctionValue { get; protected set; }
+    
 }

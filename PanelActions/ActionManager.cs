@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using PanelActions.Attributes;
+using PanelActions.Internal;
 
 namespace PanelActions
 {
@@ -8,9 +11,80 @@ namespace PanelActions
     {
         static ActionManager()
         {
-            RegisteredActions = new List<Action>();
+            _registeredActions = new List<Action>();
+            RegisterAttributes();
         }
-        public static List<Action> RegisteredActions { get; set; }
+
+        public static void Init()
+        {
+            Logging.Log("Init ActionManager");
+        }
+        private static void RegisterAttributes()
+        {
+            var actions = AbstractedTypeExtensions.FindAllInstancesOfAttribute<ActionItemAttribute>();
+            //var sliders = AbstractedTypeExtensions.FindAllInstancesOfAttribute<SliderAttribute>();
+            Logging.Log($"Found {actions.Count} attributes.");
+            foreach (var attribute in actions)
+            {
+                if (attribute.Attribute is ActionItemAttribute action)
+                {
+                    if (action.DisplayName == "")
+                    {
+                        action.DisplayName = attribute.ItemName;
+                    }
+
+                    if (action.Name == GetPrefix(action) + "-")
+                    {
+                        action.Name = attribute.ItemName;
+                    }
+                }
+                switch (attribute.Attribute)
+                {
+                    case MenuSelectionAttribute menuSelection:
+                        break;
+                    case ButtonAttribute:
+                        break;
+                    case MenuAttribute:
+                        break;
+                    case ModalAttribute:
+                        break;
+                    case SelectionAttribute:
+                        break;
+                    case SliderAttribute:
+                        break;
+                }
+            }
+        }
+
+        private static string GetPrefix(ActionItemAttribute attribute) => attribute switch
+        {
+            ButtonAttribute => nameof(Button),
+            MenuAttribute => nameof(Menu),
+            MenuSelectionAttribute => "",
+            ModalAttribute => nameof(Modal),
+            SelectionAttribute => nameof(Selection),
+            SliderAttribute => nameof(Slider),
+            _ => ""
+        };
+        internal static void RegisterAction(Action action)
+        {
+            if(!_registeredActions.Contains(action))
+                _registeredActions.Add(action);
+        }
+
+        internal static void UnRegisterAction(Action action)
+        {
+            if(_registeredActions.Contains(action))
+                _registeredActions.Remove(action);
+        }
+
+        private static List<Action> _registeredActions;
+
+        public static ReadOnlyCollection<Action> RegisteredActions
+        {
+            get => new ReadOnlyCollection<Action>(_registeredActions);
+
+        }
 
         public static T GetAction<T>() where T : Action
         {

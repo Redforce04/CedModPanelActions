@@ -12,10 +12,11 @@
 
 using System;
 
-namespace PanelActions;
+namespace PanelActions.Attributes;
 
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public class ActionItemAttribute : Attribute
 {
-    
+    public virtual string DisplayName { get; set; }
+    public virtual string DisplayDescription { get; set; }
+    public virtual string Name { get; set; }
 }

@@ -1,2 +1,9 @@
 C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.csproj.AssemblyReference.cache
 C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.csproj.CoreCompileInputs.cache
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\bin\Debug\PanelActions.dll
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\bin\Debug\PanelActions.pdb
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\bin\Debug\0Harmony.dll
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.csproj.CopyComplete
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.dll
+C:\Users\redfo\RiderProjects\PanelActions\PanelActions\obj\Debug\PanelActions.pdb

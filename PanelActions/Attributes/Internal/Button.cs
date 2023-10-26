@@ -16,9 +16,23 @@ internal sealed class Button : ButtonAction
 {
     internal Button(string name, string buttonTitle)
     {
+        Name = $"{nameof(Button)}-" + name;
+        DisplayName = buttonTitle;
+    }
+
+    internal void UpdateDisplayName(string name)
+    {
+        this.DisplayName = name;
+    }
+
+    internal void UpdateDisplayDescription(string description)
+    {
+        this.DisplayDescription = description;
+    }
+
+    internal void UpdateName(string name)
+    {
         Name = name;
-        ButtonTitle = buttonTitle;
     }
     public override string Name { get; protected set; }
-    public override string ButtonTitle { get; protected set; }
 }

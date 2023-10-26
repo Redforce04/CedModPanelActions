@@ -54,6 +54,7 @@
         <Compile Include="Attributes\Internal\Slider.cs" />
         <Compile Include="Attributes\ActionItemAttribute.cs" />
         <Compile Include="Attributes\MenuAttribute.cs" />
+        <Compile Include="Attributes\MenuSelectionAttribute.cs" />
         <Compile Include="Attributes\ModalAttribute.cs" />
         <Compile Include="Attributes\SelectionAttribute.cs" />
         <Compile Include="Attributes\SliderAttribute.cs" />
@@ -79,11 +80,15 @@
         <Compile Include="Features\Modals\ModalString.cs" />
         <Compile Include="Features\SelectionAction.cs" />
         <Compile Include="Features\SliderAction.cs" />
+        <Compile Include="Logging.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="..\.gitignore">
         <Link>.gitignore</Link>
+      </Content>
+      <Content Include="..\README.md">
+        <Link>README.md</Link>
       </Content>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

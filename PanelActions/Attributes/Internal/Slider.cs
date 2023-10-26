@@ -16,11 +16,25 @@ internal sealed class Slider : SliderAction
 {
     internal Slider(string name, float defaultValue = 0, float minimumValue = 0f, float maximumValue = 100f, bool intOnly = false)
     {
-        Name = name;
+        Name = $"{nameof(Slider)}-" + name;
         DefaultValue = defaultValue;
         MinimumValue = minimumValue;
         MaximumValue = maximumValue;
         IntOnly = intOnly;
+    }
+
+    internal void UpdateDisplayName(string name)
+    {
+        this.DisplayName = name;
+    }
+
+    internal void UpdateDisplayDescription(string description)
+    {
+        this.DisplayDescription = description;
+    }
+    internal void UpdateName(string name)
+    {
+        Name = name;
     }
     public override string Name { get; protected set; }
     public override float MinimumValue { get; protected set; }

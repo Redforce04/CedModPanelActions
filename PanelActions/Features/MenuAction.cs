@@ -17,8 +17,9 @@ namespace PanelActions;
 
 public abstract class MenuAction : Action
 {
+    public MenuAction() : base() { } 
+
     public abstract override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Menu;
-    [Required(ErrorMessage = "You must have at least one selection defined.")]
     public abstract List<MenuSelection> Selections { get; protected set; }
 }

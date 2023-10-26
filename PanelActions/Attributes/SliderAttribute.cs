@@ -13,9 +13,9 @@
 using System;
 using PanelActions.Internal;
 
-namespace PanelActions;
+namespace PanelActions.Attributes;
 
-[AttributeUsage(AttributeTargets.Method)]
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 public sealed class SliderAttribute : ActionItemAttribute
 {
     public SliderAttribute(string name, float defaultValue = 0f, float minimumValue = 0f, float maximumValue = 100f, bool intOnly = false)
@@ -23,4 +23,20 @@ public sealed class SliderAttribute : ActionItemAttribute
         Slider = new Slider(name, defaultValue, minimumValue, maximumValue, intOnly);
     }
     internal Slider Slider { get; set; }
+    public override string DisplayName
+    {
+        get => Slider.DisplayName;
+        set => Slider.UpdateDisplayName(value);
+    }
+    public override string DisplayDescription
+    {
+        get => Slider.DisplayDescription;
+        set => Slider.UpdateDisplayDescription(value);
+    }
+    
+    public override string Name
+    {
+        get => Slider.Name;
+        set => Slider.UpdateName(value);
+    }
 }

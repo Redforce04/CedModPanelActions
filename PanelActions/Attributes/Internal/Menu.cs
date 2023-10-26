@@ -17,15 +17,29 @@ namespace PanelActions.Internal;
 
 internal sealed class Menu : MenuAction
 {
-    internal Menu(string name, List<MenuSelection> menuSelections)
+    internal Menu(string name) 
     {
-        if (menuSelections is null || menuSelections.Count < 1)
-        {
-            throw new ArgumentException("The value \"MenuSelections\" (List<MenuSelection>) must have at least one valid menu selection.");
-        }
+        Name = $"{nameof(Menu)}-" + name;
+        Selections = new List<MenuSelection>();
+    }
 
+    internal void UpdateMenuSelections(List<MenuSelection> selections)
+    {
+        Selections = selections;
+    }
+    
+    internal void UpdateDisplayName(string name)
+    {
+        this.DisplayName = name;
+    }
+
+    internal void UpdateDisplayDescription(string description)
+    {
+        this.DisplayDescription = description;
+    }
+    internal void UpdateName(string name)
+    {
         Name = name;
-        Selections = menuSelections;
     }
     public override string Name { get; protected set; }
     public override List<MenuSelection> Selections { get; protected set; }

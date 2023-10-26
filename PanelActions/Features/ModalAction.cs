@@ -16,6 +16,8 @@ namespace PanelActions;
 
 public abstract class ModalAction : Action
 {
+    public ModalAction() : base() { } 
+
     public abstract override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Modal;
     public virtual List<ModalItem> ModalFields { get; protected set; } = new List<ModalItem>();

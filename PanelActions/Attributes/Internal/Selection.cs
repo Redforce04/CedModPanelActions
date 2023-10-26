@@ -16,6 +16,20 @@ internal sealed class Selection : SelectionAction
 {
     internal Selection(string name, SelectionValue value)
     {
+        Name =  $"{nameof(Selection)}-" + name;
+    }
+    
+    internal void UpdateDisplayName(string name)
+    {
+        this.DisplayName = name;
+    }
+
+    internal void UpdateDisplayDescription(string description)
+    {
+        this.DisplayDescription = description;
+    }
+    internal void UpdateName(string name)
+    {
         Name = name;
     }
 

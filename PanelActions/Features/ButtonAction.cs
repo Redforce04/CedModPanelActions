@@ -14,7 +14,7 @@ namespace PanelActions;
 
 public abstract class ButtonAction : Action
 {
+    public ButtonAction() : base() { } 
     public abstract override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Button;
-    public virtual string ButtonTitle { get; protected set; }
 }
