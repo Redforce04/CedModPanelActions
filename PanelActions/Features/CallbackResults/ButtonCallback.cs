@@ -4,19 +4,15 @@
 // -----------------------------------------
 //    Solution:         PanelActions
 //    Project:          PanelActions
-//    FileName:         ModalItem.cs
+//    FileName:         ButtonCallback.cs
 //    Author:           Redforce04#4091
-//    Revision Date:    10/19/2023 11:58 AM
-//    Created Date:     10/19/2023 11:58 AM
+//    Revision Date:    10/26/2023 12:33 PM
+//    Created Date:     10/26/2023 12:33 PM
 // -----------------------------------------
 
-namespace PanelActions;
+namespace PanelActions.CallbackResults;
 
-public enum ModalItemType
+public class ButtonCallback
 {
-    AutoAssign = 0,
-    Bool = 1,
-    Enum = 2,
-    Slider = 3,
-    String = 4,
+    
 }

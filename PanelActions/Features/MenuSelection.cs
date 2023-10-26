@@ -11,6 +11,7 @@
 // -----------------------------------------
 
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace PanelActions;
 
@@ -18,7 +19,7 @@ public class MenuSelection
 {
     public MenuSelection(string name, string displayName)
     {
-        Name = name;
+        Name = $"{nameof(MenuSelection)}-{name}";
         DisplayName = displayName;
     }
 
@@ -26,17 +27,9 @@ public class MenuSelection
     {
         MenuAction = action;
     }
+    [JsonIgnore]
     public MenuAction MenuAction { get; private set; }
     public string Name { get; set; }
-    public string DisplayName { get; private set; }
-    public string DisplayDescription { get; private set; }
-    public void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
-
-    public void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
-    }
+    public string DisplayName { get; internal set; }
+    public string DisplayDescription { get; internal set; }
 }

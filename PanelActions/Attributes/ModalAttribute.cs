@@ -20,30 +20,23 @@ namespace PanelActions.Attributes;
 public sealed class ModalAttribute : ActionItemAttribute
 {
     // todo - make this auto-generate the modal fields with the method's parameters whenever this constructor is called.
-    public ModalAttribute(string name)
+    public ModalAttribute(string name, string description = "")
     {
+        
         Modal = new Modal(name, new List<ModalItem>());
-        Name = name;
-    }
-
-    public ModalAttribute(string name, List<ModalItem> items)
-    {
-        if (items is null)
-        {
-            items = new List<ModalItem>();
-        }
-        Modal = new Modal(name, items);
+        DisplayName = name;
+        DisplayDescription = description;
     }
     internal Modal Modal { get; set; }
     public override string DisplayName
     {
         get => Modal.DisplayName;
-        set => Modal.UpdateDisplayName(value);
+        set => Modal.DisplayName = (value);
     }
     public override string DisplayDescription
     {
         get => Modal.DisplayDescription;
-        set => Modal.UpdateDisplayDescription(value);
+        set => Modal.DisplayDescription = (value);
     }
     
     public override string Name

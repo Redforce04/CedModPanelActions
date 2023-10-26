@@ -19,7 +19,7 @@ public sealed class ModalString : ModalItem
         string placeholder = "", 
         string regexFilter = "")
     {
-        Name = name;
+        Name = $"{nameof(ModalString)}-{name}";
         Title = title;
         Description = description;
         Placeholder = placeholder;

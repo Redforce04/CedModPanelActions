@@ -17,7 +17,7 @@ public sealed class ModalBool : ModalItem
     public override ModalItemType ModalItemType { get; protected set; } = ModalItemType.Bool;
     public ModalBool(string name, string title, string description = "", bool enabledByDefault = false)
     {
-        Name = name;
+        Name = $"{nameof(ModalBool)}-{name}";
         Title = title;
         Description = description;
         EnabledByDefault = enabledByDefault;

@@ -18,20 +18,22 @@ namespace PanelActions.Attributes;
 [AttributeUsage(AttributeTargets.Method | AttributeTargets.Enum, AllowMultiple = false, Inherited = true)]
 public sealed class SelectionAttribute : ActionItemAttribute
 {
-    public SelectionAttribute(string name, SelectionValue value)
+    public SelectionAttribute(string name, string description = "", SelectionValue value = SelectionValue.AutoSelect, bool allowMultiple = false)
     {
-        Selection = new Selection(name, value);
+        Selection = new Selection(name, value, allowMultiple);
+        DisplayName = name;
+        DisplayDescription = description;
     }
     internal Selection Selection { get; set; }
     public override string DisplayName
     {
         get => Selection.DisplayName;
-        set => Selection.UpdateDisplayName(value);
+        set => Selection.DisplayName = (value);
     }
     public override string DisplayDescription
     {
         get => Selection.DisplayDescription;
-        set => Selection.UpdateDisplayDescription(value);
+        set => Selection.DisplayDescription = value;
     }
     
     public override string Name

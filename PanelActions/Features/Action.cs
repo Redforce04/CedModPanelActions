@@ -11,6 +11,8 @@
 // -----------------------------------------
 
 using System;
+using Newtonsoft.Json;
+using PanelActions.CallbackResults.Handlers;
 
 namespace PanelActions;
 
@@ -21,19 +23,13 @@ public abstract class Action
         if(AutoRegister)
             this.RegisterAction();
     }
-    public string DisplayName { get; protected set; }
-    public string DisplayDescription { get; protected set; }
+    public string DisplayName { get; internal set; }
+    public string DisplayDescription { get; internal set; }
+    [JsonIgnore]
     public bool AutoRegister { get; protected set; } = true;
     public virtual string Name { get; protected set; }
     public abstract ActionType ActionType { get; protected set; }
-    public void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
-
-    public void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
-    }
+    [JsonIgnore]
+    internal Handler Handler { get; set; }
 
 }

@@ -89,6 +89,7 @@ public static class AbstractedTypeExtensions
     public static List<AttributeResult> FindAllInstancesOfAttribute<T>() where T : ActionItemAttribute
     {
         List<AttributeResult> list = new List<AttributeResult>();
+        int count = 0;
         foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
         {
             try
@@ -106,12 +107,11 @@ public static class AbstractedTypeExtensions
                         List<ParameterAttributeResult> parms = new List<ParameterAttributeResult>();
                         foreach (ParameterInfo parameter in method.GetParameters())
                         {
-                            var parameterAttribute = method.GetCustomAttribute<T>();
-                            if (parameterAttribute is null)
+                            var parameterAttribute = parameter.GetCustomAttribute<T>();
+                            if (parameterAttribute is null || parameterAttribute is not T)
                             {
                                 continue;
                             }
-
                             var parameterResult = new ParameterAttributeResult(type, parameterAttribute, parameter);
                             parms.Add(parameterResult);
                         }
@@ -125,8 +125,13 @@ public static class AbstractedTypeExtensions
 
                         methodResult = new MethodAttributeResult(type, attribute, method, parms);
                         list.Add(methodResult);
+                        if (list.Count != count)
+                        {
+                            count = list.Count;
+                            // Logging.Log("");
+                        }
                         getParams:
-                        if (methodResult is not null)
+                        if (methodResult is not null || methodResult is not T)
                         {
                             ParameterAttributeResult[] array = parms.ToArray();
                             for (int i = 0; i < array.Length; i ++)
@@ -137,20 +142,31 @@ public static class AbstractedTypeExtensions
                             parms = array.ToList();
                         }
                         list.AddRange(parms);
-
+                        if (list.Count != count)
+                        {
+                            count = list.Count;
+                            // Logging.Log("");
+                        }
                     }
 
                     foreach (PropertyInfo property in type.GetProperties())
                     {
                         var attribute = property.GetCustomAttribute<T>();
-                        if (attribute is null)
+                        if (attribute is null || attribute is not T)
                         {
                             continue;
                         }
                         
                         var methodResult = new PropertyAttributeResult(type, attribute, property);
                         list.Add(methodResult);
+                        if (list.Count != count)
+                        {
+                            count = list.Count;
+                            // Logging.Log("");
+                        }
                     }
+
+                    
                 }
             }
             catch (Exception e)

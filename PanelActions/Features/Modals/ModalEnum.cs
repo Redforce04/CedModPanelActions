@@ -21,7 +21,7 @@ public sealed class ModalEnum : ModalItem
     public override ModalItemType ModalItemType { get; protected set; } = ModalItemType.Enum;
     public ModalEnum(string name, string title, Type enumType, object placeholderValue = null, string description = "")
     {
-        Name = name;
+        Name = $"{nameof(ModalEnum)}-{name}";
         Title = title;
         Description = description;
         EnumType = enumType;
@@ -48,7 +48,7 @@ public sealed class ModalEnum : ModalItem
     public override string Name { get; protected set; }
     public override string Title { get; protected set; }
     public override string Description { get; protected set; }
-    public string PlaceholderValue { get; private set; } = "";
+    public string PlaceholderValue { get; internal set; } = "";
     public Type EnumType { get; private set; }
     public List<string> Values { get; private set; }
 }

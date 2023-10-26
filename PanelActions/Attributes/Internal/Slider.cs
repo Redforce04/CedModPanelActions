@@ -22,16 +22,6 @@ internal sealed class Slider : SliderAction
         MaximumValue = maximumValue;
         IntOnly = intOnly;
     }
-
-    internal void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
-
-    internal void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
-    }
     internal void UpdateName(string name)
     {
         Name = name;

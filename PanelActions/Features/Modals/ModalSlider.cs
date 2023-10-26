@@ -22,7 +22,7 @@ public sealed class ModalSlider : ModalItem
         float maximumValue = 100, 
         bool isInt = false)
     {
-        Name = name;
+        Name = $"{nameof(ModalSlider)}-{name}";
         Title = title;
         Description = description;
         StartingValue = startingValue;

@@ -19,9 +19,11 @@ namespace PanelActions.Attributes;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public sealed class MenuAttribute : ActionItemAttribute
 {
-    public MenuAttribute(string name)
+    public MenuAttribute(string name, string description = "")
     {
         Menu = new Menu(name);
+        DisplayName = name;
+        DisplayDescription = description;
     }
     internal Menu Menu { get; set; }
 
@@ -32,12 +34,12 @@ public sealed class MenuAttribute : ActionItemAttribute
     public override string DisplayName
     {
         get => Menu.DisplayName;
-        set => Menu.UpdateDisplayName(value);
+        set => Menu.DisplayName = (value);
     }
     public override string DisplayDescription
     {
         get => Menu.DisplayDescription;
-        set => Menu.UpdateDisplayDescription(value);
+        set => Menu.DisplayDescription = (value);
     }
 
     public override string Name

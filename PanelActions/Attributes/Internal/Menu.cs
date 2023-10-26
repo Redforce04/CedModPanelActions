@@ -22,25 +22,15 @@ internal sealed class Menu : MenuAction
         Name = $"{nameof(Menu)}-" + name;
         Selections = new List<MenuSelection>();
     }
-
+    public override string Name { get; protected set; }
+    public override List<MenuSelection> Selections { get; protected set; }
     internal void UpdateMenuSelections(List<MenuSelection> selections)
     {
         Selections = selections;
     }
     
-    internal void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
-
-    internal void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
-    }
     internal void UpdateName(string name)
     {
         Name = name;
     }
-    public override string Name { get; protected set; }
-    public override List<MenuSelection> Selections { get; protected set; }
 }

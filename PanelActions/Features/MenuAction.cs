@@ -19,7 +19,7 @@ public abstract class MenuAction : Action
 {
     public MenuAction() : base() { } 
 
-    public abstract override string Name { get; protected set; }
+    public override string Name { get; protected set; }
     public override ActionType ActionType { get; protected set; } = ActionType.Menu;
     public abstract List<MenuSelection> Selections { get; protected set; }
 }

@@ -36,6 +36,9 @@
         <Reference Include="0Harmony">
           <HintPath>..\references\0Harmony.dll</HintPath>
         </Reference>
+        <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+          <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.ComponentModel.DataAnnotations">
           <HintPath>..\references\System.ComponentModel.DataAnnotations.dll</HintPath>
@@ -56,6 +59,11 @@
         <Compile Include="Attributes\MenuAttribute.cs" />
         <Compile Include="Attributes\MenuSelectionAttribute.cs" />
         <Compile Include="Attributes\ModalAttribute.cs" />
+        <Compile Include="Attributes\Modals\ModalBoolAttribute.cs" />
+        <Compile Include="Attributes\Modals\ModalEnumAttribute.cs" />
+        <Compile Include="Attributes\Modals\ModalItemAttribute.cs" />
+        <Compile Include="Attributes\Modals\ModalSliderAttribute.cs" />
+        <Compile Include="Attributes\Modals\ModalStringAttribute.cs" />
         <Compile Include="Attributes\SelectionAttribute.cs" />
         <Compile Include="Attributes\SliderAttribute.cs" />
         <Compile Include="Enums\ActionType.cs" />
@@ -64,6 +72,16 @@
         <Compile Include="Extensions\AbstractTypeExtensions.cs" />
         <Compile Include="Features\Action.cs" />
         <Compile Include="Features\ButtonAction.cs" />
+        <Compile Include="Features\CallbackResults\ButtonCallback.cs" />
+        <Compile Include="Features\CallbackResults\Callback.cs" />
+        <Compile Include="Features\CallbackResults\Structs\CallbackItem.cs" />
+        <Compile Include="Features\CallbackResults\Handlers\FieldHandler.cs" />
+        <Compile Include="Features\CallbackResults\Handlers\Handler.cs" />
+        <Compile Include="Features\CallbackResults\Handlers\MethodHandler.cs" />
+        <Compile Include="Features\CallbackResults\MenuCallback.cs" />
+        <Compile Include="Features\CallbackResults\ModalCallback.cs" />
+        <Compile Include="Features\CallbackResults\ParameterlessCallback.cs" />
+        <Compile Include="Features\CallbackResults\SliderCallback.cs" />
         <Compile Include="Features\MenuAction.cs" />
         <Compile Include="Features\MenuSelection.cs" />
         <Compile Include="Features\ModalAction.cs" />
@@ -90,6 +108,9 @@
       <Content Include="..\README.md">
         <Link>README.md</Link>
       </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

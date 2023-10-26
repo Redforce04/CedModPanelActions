@@ -18,20 +18,22 @@ namespace PanelActions.Attributes;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 public sealed class ButtonAttribute : ActionItemAttribute
 {
-    public ButtonAttribute(string name, string buttonTitle)
+    public ButtonAttribute(string name, string description = "")
     {
-        Button = new Button(name, buttonTitle);
+        Button = new Button(name, name);
+        DisplayName = name;
+        DisplayDescription = description;
     }
     internal Button Button { get; set; }
     public override string DisplayName
     {
         get => Button.DisplayName;
-        set => Button.UpdateDisplayName(value);
+        set => Button.DisplayName =(value);
     }
     public override string DisplayDescription
     {
         get => Button.DisplayDescription;
-        set => Button.UpdateDisplayDescription(value);
+        set => Button.DisplayDescription =(value);
     }
 
     public override string Name

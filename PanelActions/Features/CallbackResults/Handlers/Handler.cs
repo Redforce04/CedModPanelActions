@@ -4,19 +4,16 @@
 // -----------------------------------------
 //    Solution:         PanelActions
 //    Project:          PanelActions
-//    FileName:         ModalItem.cs
+//    FileName:         Handler.cs
 //    Author:           Redforce04#4091
-//    Revision Date:    10/19/2023 11:58 AM
-//    Created Date:     10/19/2023 11:58 AM
+//    Revision Date:    10/26/2023 12:15 PM
+//    Created Date:     10/26/2023 12:15 PM
 // -----------------------------------------
 
-namespace PanelActions;
+namespace PanelActions.CallbackResults.Handlers;
 
-public enum ModalItemType
+internal abstract class Handler
 {
-    AutoAssign = 0,
-    Bool = 1,
-    Enum = 2,
-    Slider = 3,
-    String = 4,
+    
+    internal abstract void HandleCallback(Callback callback);
 }

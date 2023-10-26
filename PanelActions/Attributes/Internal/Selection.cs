@@ -14,19 +14,10 @@ namespace PanelActions.Internal;
 
 internal sealed class Selection : SelectionAction
 {
-    internal Selection(string name, SelectionValue value)
+    internal Selection(string name, SelectionValue value, bool allowMultiple = false)
     {
         Name =  $"{nameof(Selection)}-" + name;
-    }
-    
-    internal void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
-
-    internal void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
+        AllowMultiple = allowMultiple;
     }
     internal void UpdateName(string name)
     {
@@ -35,4 +26,10 @@ internal sealed class Selection : SelectionAction
 
     public override string Name { get; protected set; }
     public override SelectionValue SelctionValue { get; protected set; }
+    public override bool AllowMultiple { get; protected set; } = false;
+
+    public void UpdateAllowMultiple(bool allowMultiple)
+    {
+        AllowMultiple = allowMultiple;
+    }
 }

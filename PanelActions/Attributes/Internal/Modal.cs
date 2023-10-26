@@ -21,21 +21,11 @@ internal sealed class Modal : ModalAction
         Name = "modal-" + name;
         ModalFields = modalFields;
     }
-    
-    internal void UpdateDisplayName(string name)
-    {
-        this.DisplayName = name;
-    }
 
-    internal void UpdateDisplayDescription(string description)
-    {
-        this.DisplayDescription = description;
-    }
+    public override string Name { get; protected set; }
+    public override List<ModalItem> ModalFields { get; protected set; }
     internal void UpdateName(string name)
     {
         Name = name;
     }
-    
-    public override string Name { get; protected set; }
-    public override List<ModalItem> ModalFields { get; protected set; }
 }

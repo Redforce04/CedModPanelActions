@@ -11,16 +11,18 @@
 // -----------------------------------------
 
 using System;
+using Newtonsoft.Json;
 using PanelActions.Attributes;
 
 namespace PanelActions;
 
-[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
+[AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 public class MenuSelectionAttribute : ActionItemAttribute
 {
-    public MenuSelectionAttribute()
+    public MenuSelectionAttribute(string optionName, string displayName, string description = "")
     {
-        MenuSelection = new MenuSelection("", "");
+        MenuSelection = new MenuSelection(optionName, displayName);
+        MenuSelection.DisplayDescription = description;
     }
     public MenuSelection MenuSelection { get; set; }
 
@@ -33,12 +35,13 @@ public class MenuSelectionAttribute : ActionItemAttribute
     public override string DisplayName
     {
         get => MenuSelection.DisplayName;
-        set => MenuSelection.UpdateDisplayName(value);
+        set => MenuSelection.DisplayName = value;
     }
+    
     public override string DisplayDescription
     {
         get => MenuSelection.DisplayDescription;
-        set => MenuSelection.UpdateDisplayDescription(value);
+        set => MenuSelection.DisplayDescription = value;
     }
 
 }

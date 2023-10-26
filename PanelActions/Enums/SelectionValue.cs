@@ -14,15 +14,10 @@ namespace PanelActions;
 
 public enum SelectionValue
 {
+    AutoSelect = 0,
     Player,
-    PlayerList,
     Role,
-    RoleList,
     Team,
-    TeamList,
-    String,
-    Int,
-    Float,
-    Bool,
+    Number,
     Enum,
 }
